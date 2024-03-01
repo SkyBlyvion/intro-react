@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import FirstComponent from './FirstComponent';
 
 const App = () => {
   
+  // cycle de vie d'un composant
+  useEffect(() => {
+    // on crée une fonction qui s'exécute au montage du composant
+    setToto('toto');
+    
+    return () => {
+      // on crée une fonction qui s'exécute au demontage du composant
+    }
+
+  }, [/* on crée des state qui s'exécutent au montage, permet d'upate le composant */])
+  
   // Evolutive state with useState hook
   // rendu dynamique, evite de recharger l'interface
-  const [toto, setToto] = useState('toto');
+  const [toto, setToto] = useState();
 
   // toggle
   const [isToto, setIsToto] = useState(true);
@@ -46,6 +58,8 @@ const App = () => {
       {/* <div onClick={()=>{ togglett() }}>{isToto}Appuie moi</div> */}
       <h1>{isToto ? 'Toto' : 'John Doe'}</h1>
       <div onClick={()=>{ toggleToto() }}>Appuie moi</div>
+      <br />
+      <FirstComponent data={{name: 'toto', sexe: 'masculin', age: 25, taille: 180}}/>
 
 
     </>
