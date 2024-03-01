@@ -3,7 +3,7 @@ import styles from './style'
 
 const ThirdComponent = (style) => {
   return (
-    <div style={styles.box}>ThirdComponent</div>
+    <div className="background-custom" style={styles.box}>ThirdComponent</div>
   )
 }
 
