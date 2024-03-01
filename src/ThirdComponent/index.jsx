@@ -1,8 +1,9 @@
 import React from 'react'
+import styles from './style'
 
-const ThirdComponent = () => {
+const ThirdComponent = (style) => {
   return (
-    <div>ThirdComponent</div>
+    <div style={styles.box}>ThirdComponent</div>
   )
 }
 
