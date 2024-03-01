@@ -1,33 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  
+  // Evolutive state with useState hook
+  // rendu dynamique, evite de recharger l'interface
+  const [toto, setToto] = useState('toto');
+
+  // toggle
+  const [isToto, setIsToto] = useState(true);
+
+  // on crée une fonction qui modifie le state toto
+  const modifToto = () => {
+    setToto('John Doe');
+  }
+  // on crée une fonction qui modifie le state toto // variante
+  const modifTot = () => {
+    setToto('toto');
+  }
+
+  // on crée un toggle pour changer la valeur de isToto
+  const toggle = () => {
+    setIsToto(!isToto);
+  }
+
+  // on crée un toggle pour changer la valeur de isToto // variante
+  const toggleToto = () => {
+    setIsToto(!isToto);
+    if(isToto) {
+      setToto('toto');
+    } else {
+      setToto('John Doe');
+    }
+  }
+
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>{toto}</h1>
+      <div onClick={()=>{ modifToto() }}>Don't Click !!!</div>
+      <br />
+      <div onClick={()=>{ modifTot() }}>Click !!!</div>
+      <br />
+      <div onClick={()=>{ toggle() }}>{isToto ? 'Toto' : 'John Doe'}</div>
+      <br />
+      {/* <div onClick={()=>{ togglett() }}>{isToto}Appuie moi</div> */}
+      <h1>{isToto ? 'Toto' : 'John Doe'}</h1>
+      <div onClick={()=>{ toggleToto() }}>Appuie moi</div>
+
+
     </>
   )
 }

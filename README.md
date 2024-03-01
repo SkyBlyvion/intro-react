@@ -1,3 +1,15 @@
+# Installation
+
+git clone 
+npm i
+npm run dev
+
+# Régles
+
+.eslintrc.cjs : Régles d'écriture du code 
+
+# 
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
